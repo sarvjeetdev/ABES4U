@@ -1,0 +1,357 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Red+Hat+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <title>ABES4U</title>
+  </head>
+  <body>
+    <!-- Overlay -->
+    <section id="overlay"></section>
+    <!-- Header -->
+    <header class="container">
+      <div class="wrapper">
+        <nav class="navbar">
+          <!-- logo -->
+          <div class="navbar__logo">
+            <a href="#banner"><img src="{% static 'img/logo.png' %}" alt="logo" /></a>
+            <p>ABES 4U</p>
+          </div>
+          <!-- links -->
+          <ul class="navbar__links">
+            <li class="navbar__link"><a href="#banner">Home</a></li>
+            <li class="navbar__link"><a href="#features">Features</a></li>
+            <li class="navbar__link"><a href="#solution">Solution</a></li>
+            <li class="navbar__link"><a href="#todo">Developers</a></li>
+            <button  data-target="#modal1" class="navbar__btn">Login</button>
+          </ul>
+          <!-- icon -->
+          <div class="navbar__ham">
+            <div class="navbar__icon"></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Banner -->
+    <section id="banner">
+      <div class="container">
+        <div class="banner__img">
+          <img
+            src="{% static 'img/main.png' %}"
+            alt="teaching"
+          />
+        </div>
+        <div class="banner__desc">
+          <h4 class="banner__tag">ABES 4U</h4>
+          <h1 class="banner__title">
+            Welcome to ABES 4U
+          </h1>
+          <p class="banner__detail">
+            There is no specific medicine to prevent or treat coronavirus
+            disease (COVID-19). People may need supportive care to.
+          </p>
+          <div class="banner__btn">
+            <button data-target="#modal1">Join us here</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- What Is -->
+    <section id="whatis">
+      <div class="container">
+        <div class="whatis__img">
+          <img src= "{% static 'img/what.png' %}" alt="virus illustration" />
+        </div>
+        <div class="whatis__desc">
+          <h4 class="section__tag">what is ABES 4U</h4>
+          <h3 class="section__title">A solution</h3>
+          <p class="section__detail">
+            Corona viruses are a type of virus. There are many different kinds,
+            and some cause disease. A newly identified type has caused a recent
+            outbreak of respiratory illness now called COVID-19.Lauren Sauer,
+            M.S., the director of operations with the Johns Hopkins Office of
+            Critical Event Preparedness and Response
+          </p>
+          <div class="whatis__btn">
+            <a href="#solution"><button>learn more</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- solution -->
+    <section id="solution" class="pt">
+      <div class="container">
+        <div class="wrapper">
+          <div class="section__heading">
+            <h4 class="section__tag">ABES 4U</h4>
+            <h3 class="section__title">Our Solution</h3>
+            <p class="section__detail">
+              Corona viruses are a type of virus. There are many different
+              kinds, and some cause disease. A newly identified type has caused
+              a recent outbreak of respiratory
+            </p>
+          </div>
+          <div class="solution__img">
+            <img src=" {% static 'img/Hello.png' %}" alt="Our Use cases" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- features -->
+    <section id="features" class="pt">
+      <div class="container">
+        <div class="wrapper">
+          <div class="section__heading">
+            <h4 class="section__tag">ABES 4U</h4>
+            <h3 class="section__title">Our Features</h3>
+            <p class="section__detail">
+              Corona viruses are a type of virus. There are many different
+              kinds, and some cause disease. A newly identified type
+            </p>
+          </div>
+          <div class="features__cards">
+            <!-- card 1 -->
+            <div class="features__card">
+              <img src="{% static 'img/cont-1.png' %}" alt="girl coughing illustration" />
+              <h2>Career Path Recommendation</h2>
+              <p>
+                Objectively evolve tactical expertise before extensible
+                initiatives. Efficiently simplify
+              </p>
+            </div>
+            <!-- card 2 -->
+            <div class="features__card">
+              <img src="{% static 'img/cont-2.png' %}" alt="holding hands illustration" />
+              <h2>Interview Archives</h2>
+              <p>
+                Washing your hands is one of thesimplest ways you can protect
+              </p>
+            </div>
+            <!-- card 3 -->
+            <div class="features__card">
+              <img src="{% static 'img/cont-3.png' %}" alt="cup illustration" />
+              <h2>Useful Resources</h2>
+              <p>
+                Use the tissue while sneezing,In this way, you can protect your
+                droplets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Todo -->
+    <section id="todo" class="pt">
+      <div class="container">
+        
+        <div class="wrapper">
+          <div class="section__heading">
+            <h4 class="section__tag">ABES 4U</h4>
+            <h3 class="section__title">Meet the Developers</h3>
+            <p class="section__detail">
+              Corona viruses are a type of virus. There are many different
+              kinds, and some cause disease. A newly identified type has caused
+            </p>
+          </div>
+          <div class="todo__steps">
+            <!-- step 1 -->
+            <div class="todo__step">
+              <div class="todo__step-desc center">
+                <span
+                  >01
+                  <div class="ml">
+                    <h5>Sarvjeet Singh</h5>
+                    <p>
+                      Continually seize impactful vortals rather than
+                      future-proof supply chains. Uniquely exploit emerging
+                      niches via fully tested meta-services. Competently pursue
+                      standards compliant leadership skills vis-a-vis pandemic
+                      "outside the box" thinking. Objectively
+                    </p>
+                  </div>
+                </span>
+              </div>
+              <div class="todo__step-img">
+                <img
+                  src="{% static 'img/gg.png' %}"
+                  alt="female character illustration"
+                />
+              </div>
+            </div>
+            <!-- step 2 -->
+            <div class="todo__step">
+              <div class="todo__step-desc">
+                <span
+                  >02
+                  <div class="ml">
+                    <h5>Utkarsh Jain</h5>
+                    <p>
+                      Continually seize impactful vortals rather than
+                      future-proof supply chains. Uniquely exploit emerging
+                      niches via fully tested meta-services. Competently pursue
+                      standards compliant leadership skills vis-a-vis pandemic
+                      "outside the box" thinking. Objectively Continually seize
+                      impactful vortals
+                    </p>
+                  </div>
+                </span>
+              </div>
+              <div class="todo__step-img">
+                <img
+                  src="{% static 'img/todo-img-2.png ' %}"
+                  alt="female character illustration"
+                />
+              </div>
+            </div>
+            <!-- step 3 -->
+            <div class="todo__step">
+              <div class="todo__step-desc">
+                <span
+                  >03
+                  <div class="ml">
+                    <h5>Vikas Pargai</h5>
+                    <p>
+                      Continually seize impactful vortals rather than
+                      future-proof supply chains. Uniquely exploit emerging
+                      niches via fully tested meta-services. Competently pursue
+                      standards compliant leadership skills vis-a-vis pandemic
+                      "outside the box" thinking. Objectively
+                    </p>
+                  </div></span
+                >
+              </div>
+              <div class="todo__step-img">
+                <img
+                  src="{% static 'img/todo-img-3.png ' %}"
+                  alt="female character illustration"
+                />
+              </div>
+            </div>
+            <!-- step 4 -->
+            <div class="todo__step">
+              <div class="todo__step-desc">
+                <span
+                  >04
+                  <div class="ml">
+                    <h5>Sapna Jain</h5>
+                    <p>
+                      Continually seize impactful vortals rather than
+                      future-proof supply chains. Uniquely exploit emerging
+                      niches via fully tested meta-services. Competently pursue
+                      standards compliant leadership skills vis-a-vis pandemic
+                    </p>
+                  </div></span
+                >
+              </div>
+              <div class="todo__step-img">
+                <img
+                  src="{% static 'img/todo-img-4.png' %}" 
+                  alt="female character illustration"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+
+
+
+<div class="modal" id="modal1">
+      <div class="header">
+        <div class="title">Login Here</div>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="body">
+        <form method="Post">
+           {% csrf_token %}
+            <input type="text" name="username" placeholder="username" />
+            <input type="password" name="password" placeholder="password" />
+            <button type="submit">Login</button>
+            <button type="reset">Forget password</button>
+          </form>
+      </div>
+    </div>
+    <div id="overlay2"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    <!-- Footer  <section id="contact" class="pt">
+      <div class="container">
+        <div class="wrapper">
+          <div class="contact__title">
+            <h1>DO you have any suggestions or feedback ?</h1>
+          </div>
+          <form class="contact__form">
+            <span></span>
+            
+          </form>
+        </div>
+      </div>
+    </section> -->
+    <footer class="pt">
+      <div class="container">
+        <div class="wrapper">
+          <div class="footer__top">
+            <!-- logo -->
+            <div class="navbar__logo">
+              <img src="{% static 'img/logo.png' %}" alt="logo" />
+              <p>ABES 4U</p>
+            </div>
+            <!-- links -->
+            <ul class="footer__links">
+              <li class="footer__link"><a href="#banner">overview</a></li>
+              <li class="footer__link"><a href="#features">features</a></li>
+              <li class="footer__link"><a href="#solution">solution</a></li>
+              <li class="footer__link"><a href="#todo">Developers</a></li>
+            </ul>
+            <!-- socials -->
+            <div class="footer__socials">
+              
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <p>2023 B.Tech Final Year Project</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
