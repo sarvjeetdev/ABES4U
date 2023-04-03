@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +8,18 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 
-	<title>AdminHub</title>
+	<title>ABES4U</title>
 </head>
 <body>
 
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		 <div class="navbar__logo">
-            <a href="index.html"><img src="./img/logo.png" alt="logo" /></a>
-            <p>ABES 4U</p>
+		 <div class="navbar__logo brand">
+            <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="logo" /></a>
+            <span class="text">ABES 4U</span>
           </div>
 		<ul class="side-menu top">
 			<li class="active">
@@ -28,7 +29,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				 <a href="{% url 'resource' %}">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Resources</span>
 				</a>
@@ -40,13 +41,13 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="{% url 'interview' %}">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Interviews</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="model.html">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Friends' AI</span>
 				</a>
@@ -60,7 +61,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="{% url 'logout' %}" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -90,14 +91,14 @@
 				<span class="num">8</span>
 			</a>
 			<a href="#" class="profile">
-				<img src="img/people.png">
+				<img src="{% static 'img/people.png' %}">
 			</a>
 		</nav>
 		<!-- NAVBAR -->
 
-		
+		<div class="container">Coming Soon</div>
 	
 
-	<script src="script.js"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

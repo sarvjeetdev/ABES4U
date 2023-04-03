@@ -54,3 +54,6 @@ class ResourceListView(ListView):
 class ResourceDetailView(DetailView):
     model = Resource
     template_name = 'details.html'
+
+def FriendsAI(request):
+    return  render(request,'model.html',{})
