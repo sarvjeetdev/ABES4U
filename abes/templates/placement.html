@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,9 @@
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{%static 'css/style.css' %}"/>
 
-	<title>AdminHub</title>
+	<title>ABES4U</title>
 </head>
 <body>
 
@@ -17,36 +18,36 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		 <div class="navbar__logo">
-            <a href="index.html"><img src="./img/logo.png" alt="logo" /></a>
+            <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="logo" /></a>
             <p>ABES 4U</p>
           </div>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="index.html">
+				<a href="{% url 'home' %}">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Home</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				 <a href="{% url 'resource' %}">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">Resources</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="{% url 'placement' %}">
 					<i class='bx bxs-doughnut-chart' ></i>
 					<span class="text">Placement</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="{% url 'interview' %}">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Interviews</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="model.html">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Friends' AI</span>
 				</a>
@@ -60,7 +61,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href="{% url 'logout' %}" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -104,22 +105,22 @@
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
 					<span class="text">
-						<h3>1020</h3>
-						<p>New Order</p>
+						<h3>133</h3>
+						<p>Total Offers</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>2834</h3>
-						<p>Visitors</p>
+						<h3>30</h3>
+						<p>Companies</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>$2543</h3>
-						<p>Total Sales</p>
+						<h3>Rs. 15 Lakh</h3>
+						<p>Highest Package</p>
 					</span>
 				</li>
 			</ul>
@@ -219,6 +220,6 @@
 	</section>
 	<!-- CONTENT -->
 
-	<script src="script.js"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
