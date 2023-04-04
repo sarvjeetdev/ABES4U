@@ -57,3 +57,7 @@ class ResourceDetailView(DetailView):
 
 def FriendsAI(request):
     return  render(request,'model.html',{})
+
+
+def Placement(request):
+    return  render(request,'placement.html',{})
