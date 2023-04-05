@@ -1,0 +1,64 @@
+.postcontainer {
+    width: 90%;
+    margin-left: 2rem;
+    /* border: 5px red solid; */
+}
+
+.postcontainer h2{
+    text-align: center;
+    margin-top: 2rem;
+}
+.blog {
+  height: 10rem;
+  /* border: tomato 5px solid; */
+  
+}
+
+.blogtitle{
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: bolder;
+    font-size: 3vh;
+   
+}
+.blogtitle a{
+    text-decoration: none;
+    color: red;
+}
+
+.blogtitle li{
+    width: 85%;
+}
+.postcontainer p{
+    margin-top: 2rem;
+    width: 85%;
+}
+
+.read{
+    position: relative;
+    background-color: coral;
+    height: 100%;
+    width: 4rem;
+    float: right;
+    bottom: 4.65rem;
+}
+
+.readfull a{
+   color: tomato;
+  
+}
+.readfull {
+    
+   
+}
+
+.postcontainer #SubmitForm {
+    background-color: #892424; /* Green */
+    border: tomato 3px solid;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 40%;
+    font-size: 16px;
+}

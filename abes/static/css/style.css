@@ -616,6 +616,6 @@ body {
   }
 
   .blog {
-	border: 1px solid grey ;
+	/* border: 1px solid grey ; */
 	margin: 4rem;
   }

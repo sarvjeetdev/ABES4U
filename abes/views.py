@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import ListView,DetailView,CreateView
 from .models import Interview,Resource
+from .forms import ModelForm
 # Create your views here.
 
 
@@ -13,6 +14,8 @@ def login_user(request):
         password = request.POST['password']
         user = authenticate(request,username=username,password=password)
         if user is not None:
+            user_sess = {'user_name':user.username,'user_email':user.email}
+            request.session['user'] = user_sess
             login(request, user)
             return redirect('home')
         else:
@@ -26,7 +29,11 @@ def home(request):
 
 
 def logout_view(request):
-    logout(request)
+    if (request.session.get('user') != None):
+        request.session.delete()
+        logout(request)
+        return redirect('login')
+    
     return redirect('login')
 
 
@@ -40,7 +47,8 @@ class InterviewListView(ListView):
 
 class InterviewDetailView(DetailView):
     model = Interview
-    template_name = 'details.html'
+    context_object_name = 'blog'
+    template_name = 'Interviewdetails.html'
 
 
 
@@ -53,11 +61,17 @@ class ResourceListView(ListView):
 
 class ResourceDetailView(DetailView):
     model = Resource
-    template_name = 'details.html'
-
-def FriendsAI(request):
-    return  render(request,'model.html',{})
-
+    context_object_name = 'blog'
+    template_name = 'Resourcedetails.html'
 
 def Placement(request):
     return  render(request,'placement.html',{})
+
+def friendsai(request):
+    if request.method=="POST":
+        form = ModelForm(request.POST)
+        #Model
+        return HttpResponse("Submitting data")
+    else:
+        form = ModelForm()
+        return render(request,'model.html',{'form': form})

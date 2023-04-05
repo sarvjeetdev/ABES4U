@@ -1,102 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base.html' %} {% load static %}
 
-	<!-- Boxicons -->
-	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<!-- My CSS -->
-	<link rel="stylesheet" href="{%static 'css/style.css' %}"/>
-
-	<title>ABES4U</title>
-</head>
-<body>
-
-
-	<!-- SIDEBAR -->
-	<section id="sidebar">
-		 <div class="navbar__logo">
-            <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="logo" /></a>
-            <p>ABES 4U</p>
-          </div>
-		<ul class="side-menu top">
-			<li class="active">
-				<a href="{% url 'home' %}">
-					<i class='bx bxs-dashboard' ></i>
-					<span class="text">Home</span>
-				</a>
-			</li>
-			<li>
-				 <a href="{% url 'resource' %}">
-					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">Resources</span>
-				</a>
-			</li>
-			<li>
-				<a href="{% url 'placement' %}">
-					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">Placement</span>
-				</a>
-			</li>
-			<li>
-				<a href="{% url 'interview' %}">
-					<i class='bx bxs-message-dots' ></i>
-					<span class="text">Interviews</span>
-				</a>
-			</li>
-			<li>
-				<a href="model.html">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Friends' AI</span>
-				</a>
-			</li>
-		</ul>
-		<ul class="side-menu">
-			<li>
-				<a href="#">
-					<i class='bx bxs-cog' ></i>
-					<span class="text">Settings</span>
-				</a>
-			</li>
-			<li>
-				<a href="{% url 'logout' %}" class="logout">
-					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
-				</a>
-			</li>
-		</ul>
-	</section>
-	<!-- SIDEBAR -->
-
-
-
-	<!-- CONTENT -->
-	<section id="content">
-		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="img/people.png">
-			</a>
-		</nav>
-		<!-- NAVBAR -->
-
-
+ {% block mainbody %} 
 <!-- MAIN -->
 		<main>
 			
@@ -129,87 +33,87 @@
 			<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Recent Orders</h3>
+						<h3>Recent Placements</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
 					<table>
 						<thead>
 							<tr>
-								<th>User</th>
-								<th>Date Order</th>
-								<th>Status</th>
+								<th>Student</th>
+								<th>Package</th>
+								<th>Full Time</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+									
+									<p>Student Name</p>
 								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td>12 LPA</td>
+								<td><span class="status completed">On Campus</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+									
+									<p>Student Name</p>
 								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<td>12 LPA</td>
+								<td><span class="status pending">Off Campus</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+									
+									<p>Student Name</p>
 								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
+								<td>12 LPA</td>
+								<td><span class="status process">Hackathon</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+									
+									<p>Student Name</p>
 								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<td>12 LPA</td>
+								<td><span class="status pending">Off Campus</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
+									
+									<p>Student Name</p>
 								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td>12 LPA</td>
+								<td><span class="status completed">On Campus</span></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="todo">
 					<div class="head">
-						<h3>Todos</h3>
+						<h3>MoU Companies</h3>
 						<i class='bx bx-plus' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
 					<ul class="todo-list">
 						<li class="completed">
-							<p>Todo List</p>
+							<p>Capgemini</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
 						<li class="completed">
-							<p>Todo List</p>
+							<p>Infosys</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
 						<li class="not-completed">
-							<p>Todo List</p>
+							<p>DXC</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
 						<li class="completed">
-							<p>Todo List</p>
+							<p>Tech Mahindra</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
 						<li class="not-completed">
-							<p>Todo List</p>
+							<p>TCS</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
 					</ul>
@@ -220,6 +124,4 @@
 	</section>
 	<!-- CONTENT -->
 
-	<script src="{% static 'js/script.js' %}"></script>
-</body>
-</html>
+{% endblock %} 

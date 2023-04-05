@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% load static %}
+ {% block mainbody %}  
+{% block content %}
+	<div class="container"> 
+	<h1> {{blog.title|safe}}</h1>
+<p>{{blog.content|safe}}</p>
+<small>{{blog.author}}</small></div>
+{% endblock %} 
+{% endblock %}
