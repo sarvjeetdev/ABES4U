@@ -13,4 +13,5 @@ urlpatterns = [
     path('resource/<int:pk>', ResourceDetailView.as_view(),name="resourcedetail"),
     path('friendsai', views.friendsai,name="friendsai"),
     path('placements', views.Placement,name="placement"),
+    path('resume', views.ResumeBuilder,name="resume"),
 ]

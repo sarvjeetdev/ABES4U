@@ -7,7 +7,14 @@
 	<form action="" method="post" novalidate>
 {% csrf_token %}
 {{ form.as_p}}
+
 <input id="SubmitForm" type="submit" value="Submit">
+
+
+{% if Recomm %}
+<p>Our Recommendation is : {{ Recomm }} Try it out. </p>
+
+{% endif %}
 </form>
 	</main>
 	</div>
