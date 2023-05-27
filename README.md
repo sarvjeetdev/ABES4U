@@ -21,7 +21,7 @@ students to achieve more and perform better in their careers.
 <hr>
 
 ## Pictures of Application
-
+![Landing Page](./images/11.PNG);
 ![Landing Page](./images/12.PNG);
 ![Landing Page](./images/13.PNG);
 ![Landing Page](./images/14.PNG);
