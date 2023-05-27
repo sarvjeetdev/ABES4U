@@ -17,3 +17,15 @@ help them become industry-ready by the time they graduate. It is
 suggested to implement this approach for core branches that are
 not related to computer science as well. Hence, ABES4U will help
 students to achieve more and perform better in their careers.
+
+<hr>
+
+## Pictures of Application
+
+![Landing Page](./images/12.PNG);
+![Landing Page](./images/13.PNG);
+![Landing Page](./images/14.PNG);
+![Landing Page](./images/15.PNG);
+![Landing Page](./images/16.PNG);
+![Landing Page](./images/17.PNG);
+![Landing Page](./images/18.PNG);
