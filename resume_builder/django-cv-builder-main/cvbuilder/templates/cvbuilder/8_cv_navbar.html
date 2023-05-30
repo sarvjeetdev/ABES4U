@@ -1,0 +1,22 @@
+{% for message in messages %}
+    <div class="alert alert-info mb-0 text-center" role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler mb-1" data-toggle="collapse" data-target="#navbarForCvBuilder">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-center" id="navbarForCvBuilder">
+        <ul class="nav navbar-nav">
+            <a class="btn btn-outline-light mr-1 mt-1 mb-1" href="{% url 'cvbuilder:MainPage' %}"><i class="fas fa-eye"></i> Resume Details</a>
+            <a class="btn btn-outline-success mr-1 mt-1 mb-1" href="{% url 'cvbuilder:CreateExperience' %}"><i class="fas fa-plus"></i> Add Experience</a>
+            <a class="btn btn-outline-success mr-1 mt-1 mb-1" href="{% url 'cvbuilder:CreateSkill' %}"><i class="fas fa-plus"></i> Add Skill</a>
+            <a class="btn btn-outline-success mr-1 mt-1 mb-1" href="{% url 'cvbuilder:CreateEducation' %}"><i class="fas fa-plus"></i> Add Education</a>
+            <a class="btn btn-outline-success mr-1 mt-1 mb-1" href="{% url 'cvbuilder:CreateLanguage' %}"><i class="fas fa-plus"></i> Add Language</a>
+            <a class="btn btn-outline-success mr-1 mt-1 mb-1" href="{% url 'cvbuilder:CreateAchievement' %}"><i class="fas fa-plus"></i> Add Achievement</a>
+            <a class="btn btn-outline-success mr-1 mt-1 mb-1" href="{% url 'cvbuilder:CreatePublication' %}"><i class="fas fa-plus"></i> Add Publication</a>
+            <a class="btn btn-outline-warning mr-1 mt-1 mb-1" href="{% url 'cvbuilder:ResumePreview' %}"><i class="fas fa-search"></i> Preview Your Resume</a>
+    </div>
+</nav>

@@ -1,0 +1,146 @@
+ <div class="card">
+    <!-- Header -->
+    <div class="card-header bg-dark text-center" id="heading1">
+        <h3 class="mb-0">
+            <button class="btn btn-link text-light" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                <span style="font-size:1.3em;">
+                    <i class="fas fa-user-edit mr-1"></i> Basic Information
+                </span>
+            </button>
+        </h3>
+    </div>
+
+    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
+
+        <!-- Card Body -->
+        <div class="card-body">
+
+            <form method='POST' enctype="multipart/form-data">{% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Resume Template</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-palette"></i>
+                                    </div>
+                                </div>
+                                {{ form.template }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Name-Surname</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                {{ form.name }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Main Title</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-heading"></i>
+                                    </div>
+                                </div>
+                                {{ form.description }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Email Address</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-at"></i>
+                                    </div>
+                                </div>
+                                {{ form.email }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Phone Number</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+                                {{ form.telephone }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Linkedin Address</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </div>
+                                </div>
+                                {{ form.linkedin }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Github</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                </div>
+                                {{ form.github }}
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Website</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fab fa-edge"></i>
+                                    </div>
+                                </div>
+                                {{ form.website }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        
+                        <div class="input-group-text ml-3 mr-3 mb-1">
+                            <i class="fas fa-paragraph mr-2"></i>
+                            <b> Career Summary </b>
+                        </div>
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Career Summary</label>
+                            <div class="input-group mb-2">
+                                {{ form.career_summary }}
+                            </div>
+                            <div class="input-group mb-2">
+                                {{ form.image }}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-outline-dark mr-1 mt-2" type="submit"><i class="fas fa-save"></i> Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

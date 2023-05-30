@@ -1,0 +1,22 @@
+# Static Files to be ignored except main folder and gitkeep
+static/*
+!static/.gitkeep
+
+media/*
+
+db.sqlite3
+
+*.log
+local_settings.py
+**/django3/*
+*/django3/**
+**/__pycache__/*
+*/__pycache__/**
+
+.DS_STORE
+
+# Django Migrations
+**/migrations/**
+**/migrations/*
+!**/migrations
+!**/migrations/__init__.py

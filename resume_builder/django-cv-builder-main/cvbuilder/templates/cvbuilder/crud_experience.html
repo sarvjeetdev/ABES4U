@@ -1,0 +1,85 @@
+{% extends "cvbuilder/_base.html" %}
+{% block title %} Ozan Tellioglu | Create/Edit {% endblock %}
+{% block header %} Create or Edit Experience {% endblock %}
+{% load static %}
+
+{% block head_other %}
+
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <style> 
+        .django-ckeditor-widget {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+{% include 'cvbuilder/8_cv_navbar.html' %}
+
+<div class="container-fluid text-center mt-3">    
+  <div class="row content">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6 text-left"> 
+
+        <form method="post">
+                {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_title" class="form-label"><b>Job Title</b></label>
+                {{ form.title }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_company" class="form-label"><b>Company Name</b></label>
+                {{ form.company }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_company" class="form-label"><b>Duration of Experience</b></label>
+                {{ form.duration }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_company" class="form-label"><b>Required Skills</b></label>
+                {{ form.tech }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_text" class="form-label"><b>Job Description</b></label>
+                {{ form.text }}
+            </div>
+
+            <input type="submit" class="btn btn-primary black-button-oz btn-block" value="Save">
+        
+        </form>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+<div class="half-divider-oz"></div>
+
+   
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $('#id_title').addClass('form-control');
+        $('#id_title').attr('placeholder', 'Provide the job title');
+        $('#id_company').addClass('form-control');
+        $('#id_company').attr('placeholder', 'Provide the company name');
+        $('#id_duration').addClass('form-control');
+        $('#id_duration').attr('placeholder', 'Provide the duration -> May 2020 - Present');
+        $('#id_tech').addClass('form-control');
+        $('#id_tech').attr('placeholder', 'Provide skills separated by comma -> SAP,Personal Management,Workday,Bootstrap')
+        $('#id_tech').css('height', '40');
+    </script>
+
+{% endblock%}

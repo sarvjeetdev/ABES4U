@@ -1,0 +1,46 @@
+{% if skills %}
+
+ <div class="card">
+    <!-- Header -->
+    <div class="card-header bg-dark text-center" id="heading3">
+        <h3 class="mb-0">
+            <button class="btn btn-link text-light" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                <span style="font-size:1.3em;">
+                    <i class="fas fa-user-edit mr-1"></i>Skills
+                </span>
+            </button>
+        </h3>
+    </div>
+
+    <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+        <!-- Card Body -->
+        <div class="card-body">
+            <form id="skillsOrderingForm" method="post" action="{% url 'cvbuilder:SaveSkillsOrder' %}"> {% csrf_token %}
+                <ul class="pl-0 pr-0 mb-0" style="white-space:nowrap;">
+                    
+                    <div id="skills" class="row">
+                    {% for skill in skills %}
+
+                        <li class="mb-2 mr-1" style="display:inline;" data-lookup="{{skill.id}}">
+                            <span class="badge badge-light" style="font-size:1em; border:1px solid black;">
+                                <i class="fas fa-grip-lines"></i>
+                                {{ skill.title }}
+                                <a href="{% url 'cvbuilder:DeleteSkill' skill.id %}" class="text-danger">
+                                    <i class="fas fa-trash ml-1"></i>
+                                </a>
+                            </span>
+                        </li>
+
+                    {% endfor %}
+                    </div>
+
+                </ul>
+
+                <input type="hidden" id="skillsOrderingInput" name="ordering">
+            
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endif %}

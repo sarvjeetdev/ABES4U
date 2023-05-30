@@ -1,0 +1,62 @@
+{% extends "cvbuilder/_base.html" %}
+{% block title %} Ozan Tellioglu | Create/Edit {% endblock %}
+{% block header %} Create or Edit Education {% endblock %}
+
+{% block content %}
+
+{% include 'cvbuilder/8_cv_navbar.html' %}
+
+<div class="container-fluid text-center mt-3">    
+  <div class="row content">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6 text-left"> 
+
+        <form method="post">
+                {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_title" class="form-label"><b>University or Organization</b></label>
+                {{ form.title }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_description" class="form-label"><b>Specialization</b></label>
+                {{ form.description }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_title" class="form-label"><b>Duration</b></label>
+                {{ form.duration }}
+            </div>
+
+
+            <input type="submit" class="btn btn-primary black-button-oz btn-block" value="Save">
+        
+        </form>
+
+    </div>
+
+    <div class="col-sm-6"></div>
+  </div>
+</div>
+
+<div class="half-divider-oz"></div>
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $('#id_title').addClass('form-control');
+        $('#id_title').attr('placeholder', 'Provide the organization name');
+
+        $('#id_description').addClass('form-control');
+        $('#id_description').attr('placeholder', 'Provide the specialization -> International Relations, Accounting');
+
+        $('#id_duration').addClass('form-control');
+        $('#id_duration').attr('placeholder', 'Provide the duration -> May 2020 - Present');
+
+    </script>
+
+{% endblock%}

@@ -1,0 +1,44 @@
+{% extends "cvbuilder/_base.html" %}
+{% block title %} Ozan Tellioglu | Create/Edit {% endblock %}
+{% block header %} Create or Edit Skill {% endblock %}
+
+{% block content %}
+
+{% include 'cvbuilder/8_cv_navbar.html' %}
+
+<div class="container-fluid text-center mt-3">    
+  <div class="row content">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6 text-left"> 
+
+        <form method="post">
+                {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_title" class="form-label"><b>Skill</b></label>
+                {{ form.title }}
+            </div>
+
+            <input type="submit" class="btn btn-primary black-button-oz btn-block" value="Save">
+        
+        </form>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+<div class="half-divider-oz"></div>
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $('#id_title').addClass('form-control');
+        $('#id_title').attr('placeholder', 'Provide the skill name');
+    </script>
+
+{% endblock%}

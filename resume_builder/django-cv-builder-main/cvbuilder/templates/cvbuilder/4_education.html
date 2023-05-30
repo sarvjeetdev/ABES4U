@@ -1,0 +1,73 @@
+{% if educations %}
+
+ <div class="card">
+    <!-- Header -->
+    <div class="card-header bg-dark text-center" id="heading4">
+        <h3 class="mb-0">
+            <button class="btn btn-link text-light" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                <span style="font-size:1.3em;">
+                    <i class="fas fa-school mr-2"></i> Education
+                </span>
+            </button>
+        </h3>
+    </div>
+
+    <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+
+        <!-- Card Body -->
+        <div class="card-body">
+            
+            <table class="table table-responsive-sm mb-0">
+                
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th scope="col"></th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <form id="educationOrderingForm" method="post" action="{% url 'cvbuilder:SaveEducationOrder' %}"> {% csrf_token %}
+                    
+                    <tbody id="educations" class="text-center">
+
+                        {% for education in educations %}
+
+                            <tr data-lookup="{{ education.id }}">
+                                <td><span class="handle_educations handle"></span></td>                
+                                <td>{{ education.title }}</td>
+                                <td>{{ education.description }}</td>
+                                <td>{{ education.duration }}</td>
+                                <td>
+                                    <a href="{% url 'cvbuilder:UpdateEducation' education.id %}">
+                                        <div class="text-center text-success">
+                                            <i class="far fa-edit"></i>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'cvbuilder:DeleteEducation' education.id %}">
+                                        <div class="text-center text-danger">
+                                            <i class="far fa-trash-alt"></i>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                    <input type="hidden" id="educationOrderingInput" name="ordering">
+                </form>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+

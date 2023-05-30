@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% if resume.name %}{{resume.name}} - {% endif %}Resume</title>  
+    <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{%  static '/cvbuilder/default_'|add:color|add:'.css' %}">
+
+    <style>
+        @media print{
+            .print-invisible{
+                display: none;
+            }
+            a {
+                text-decoration: none !important;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+                color-adjust: exact !important;                 /*Firefox*/
+            }
+            @page :footer { 
+                display: none
+            } 
+            @page :header { 
+                display: none
+            } 
+        }
+    </style>
+</head>
+
+<body>
+    <article class="text-center position-relative bgwhite">
+        
+        <!--STYLE DIV-->
+        <div class="mx-auto text-left bg-white" style="max-width: 1125px;" id="resume"> <!-- Removed: min-height: calc(100vh); -->
+
+            {% if not shared_view %}
+                <div class="print-invisible row mt-2 mb-2">
+                    <div class="col-4">
+                        <a class="btn btn-secondary btn-block" href="{% url 'cvbuilder:MainPage' %}"><i class="fas fa-arrow-left mr-2"></i> Return to Edit</a>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-info btn-block" onClick="alert(window.location.protocol + '//' + window.location.host + '{% url 'cvbuilder:SharedResumePreview' resume.code %}')"><i class="fas fa-share-alt mr-2"></i> Share your Resume</button>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn btn-warning btn-block"  href="{% url 'cvbuilder:pdf' %}"><i class="fas fa-print mr-2"></i> Download PDF</a>
+                    </div>
+                </div>
+            {% endif %}
+
+            <!--HEADER-->
+            <header class="resume-header pt-md-0">
+
+                <div class="row">
+                    <div class="col-9">
+                        <div class="row" style="padding-left:15.2px;">
+
+                            <!--IMAGE-->
+                            <div style="height:220px;">
+                                {% if resume.image %}
+                                    <img class="img-fluid" style="height: 220px; width:auto;" src="{{ resume.image.url }}" alt="">
+                                {% endif %}
+                            </div>
+                            
+                            <!--PRIMARY INFO-->
+                            <div class="pl-5 mt-4">
+                                <h1 class="name mt-0 mb-1 text-white text-uppercase">{{ resume.name }}</h1>
+                                {% if resume.description %}
+                                    <div class="title mb-3">{{ resume.description }}</div>
+                                {% endif %}
+                                <ul class="list-unstyled">
+                                    {% if resume.email %}
+                                        <li class="mb-2"><a href="mailto: {{ resume.email }}"><i class="far fa-envelope fa-fw mr-2" data-fa-transform="grow-3"></i>{{ resume.email }}</a></li>
+                                    {% endif %}
+                                    {% if resume.telephone %}
+                                        <li><a href="tel: {{resume.telephone}}"><i class="fas fa-mobile-alt fa-fw mr-2" data-fa-transform="grow-6"></i>{{ resume.telephone }}</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--SECONDARY INFO-->
+                    <div class="col-3 mt-4">
+                        <ul class="resume-social list-unstyled">
+                            {% if resume.website %}
+                                <li class="mb-3"><a href="https://{{resume.website}}"><span class="fa-container text-center mr-2"><i class="fas fa-globe"></i></span>{{resume.website}}</a></li>
+                            {% endif %}
+                            {% if resume.linkedin %}
+                                <li class="mb-3"><a href="https://{{resume.linkedin}}"><span class="fa-container text-center mr-2"><i class="fab fa-linkedin-in fa-fw"></i></span>{{resume.linkedin}}</a></li>
+                            {% endif %}
+                            {% if resume.github %}
+                                <li class="mb-3"><a href="https://{{resume.github}}" rel="noreferrer" target="_blank"><span class="fa-container text-center mr-2"><i class="fab fa-github-alt fa-fw"></i></span>{{resume.github}}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    
+                </div>
+            </header>
+
+            <!--BODY-->
+            <div class="resume-body pl-5 pr-5 pb-5 pt-4">
+                <!--CAREER SUMMARY-->
+            	{% if resume.career_summary %}
+                <section class="resume-section summary-section mb-4">
+                    <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Summary</h2>
+                    <div class="resume-section-content">
+                        <p class="mb-0">{{resume.career_summary|safe}}</p>
+                    </div>
+                </section>
+                {% endif %}
+
+                <div class="row">
+
+                    <div class="col-9">
+                        <!--EXPERIENCES -->
+                        {% if experiences %}
+                        <section class="resume-section experience-section">
+                            <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3"><i class="fas fa-briefcase mr-1"></i> Experiences</h2>
+                            <div class="resume-section-content">
+                                <div class="resume-timeline position-relative">
+
+                                    {% for experience in experiences %}
+                                    
+                                    <article class="resume-timeline-item position-relative pb-1">
+                                        <div class="resume-timeline-item-header mb-2">
+                                            <div class="row">
+                                                <h3 class="resume-position-title font-weight-bold mb-1 col-6">
+                                                    {{ experience.title }}
+                                                </h3>
+                                                <div class="col-6" style="text-align: right;">
+                                                    {{ experience.company }}
+                                                </div>
+                                            </div>
+                                            <div class="resume-position-time">{{ experience.duration }}</div>
+                                        </div>
+
+                                        <div class="resume-timeline-item-desc">
+                                            <p>{{experience.text|safe}}</p>
+                                            {% if experience.tech != "" %}
+                                                <h4 class="resume-timeline-item-desc-heading font-weight-bold mb-1">Skills For the Job:</h4>
+                                                <ul class="list-inline">
+                                                    {% for tech in experience.tech_as_list %}
+                                                        <li class="list-inline-item ml-0 mr-0"><span class="badge badge-primary" style="border:0px;">{{tech}}</span></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </div>
+
+                                    </article>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </section>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-3">
+                        <!--SKILLS-->
+                        {% if skills %}
+                            <section class="resume-section skills-section mb-4">
+                                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-2"><i class="fas fa-cog mr-1"></i> Skills</h2>
+                                <div class="resume-section-content">
+                                    <ul class="list-inline">
+                                        {% for skill in skills %}
+                                            <li class="list-inline-item ml-0 mr-0" style="font-size:1.05em;">
+                                                <span class="badge badge-primary badge-pill" style="border:0px;">{{skill.title}}</span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </section>
+                        {% endif %}
+                        
+                        <!--EDUCATION-->
+                        {% if educations %}
+                            <section class="resume-section education-section mb-4">
+                                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-2"><i class="fas fa-university mr-1"></i> Education</h2>
+                                <div class="resume-section-content">
+                                    <ul class="list-unstyled">
+                                        {% for education in educations %}
+                                            <li class="mb-2">
+                                                <div class="resume-degree font-weight-bold">{{education.title}}</div>
+                                                <div class="resume-degree-org">{{education.description}}</div>
+                                                <div class="resume-degree-time">{{education.duration}}</div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </section>
+                        {% endif %}
+                        
+                        <!--ACHIEVEMENT-->
+                        {% if achievements %}
+                            <section class="resume-section reference-section mb-4">
+                                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-2"><i class="fas fa-trophy mr-1"></i> Achievements</h2>
+                                <div class="resume-section-content">
+                                    <ul class="list-unstyled resume-awards-list">
+                                        {% for achievement in achievements %}
+                                        <li class="mb-2 position-relative">
+                                            <div class="resume-award-name">{{achievement.title}}</div>
+                                            {% if achievement.description != '' %}
+                                                <div class="resume-award-desc">{{achievement.description}}</div>
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </section>
+                        {% endif %}
+
+                        <!--LANGUAGES-->
+                       {% if languages %}
+                            <section class="resume-section language-section">
+                                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-2"><i class="fas fa-globe-europe mr-1"></i> Languages</h2>
+                                <div class="resume-section-content">
+                                    <ul class="list-unstyled resume-lang-list">
+                                        {% for language in languages %}
+                                            <li class="mb-2"><span class="resume-lang-name font-weight-bold">{{language.title}}</span> 
+                                            <small class="text-muted font-weight-normal">({{language.level}})</small></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </section>
+                        {% endif %}
+
+                         <!--ACHIEVEMENT-->
+                        {% if publications %}
+                            <section class="resume-section reference-section mb-4">
+                                <h2 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-2"><i class="fas fa-book-reader mr-1"></i> Publications</h2>
+                                <div class="resume-section-content">
+                                    <ul class="list-unstyled resume-awards-list">
+                                        {% for publication in publications %}
+                                        <li class="mb-2 position-relative">
+                                            <div class="resume-award-name">{{publication.title}}</div>
+                                            {% if publication.description != '' %}
+                                                <div class="resume-award-desc">{{publication.description}}</div>
+                                            {% endif %}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </section>
+                        {% endif %}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>

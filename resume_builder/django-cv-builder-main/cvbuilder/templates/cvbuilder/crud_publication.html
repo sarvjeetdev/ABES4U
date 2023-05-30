@@ -1,0 +1,52 @@
+{% extends "cvbuilder/_base.html" %}
+{% block title %} Ozan Tellioglu | Create/Edit {% endblock %}
+{% block header %} Publication {% endblock %}
+
+{% block content %}
+
+{% include 'cvbuilder/8_cv_navbar.html' %}
+
+<div class="container-fluid text-center mt-3">    
+  <div class="row content">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6 text-left"> 
+
+        <form method="post">
+                {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_title" class="form-label"><b>Publication</b></label>
+                {{ form.title }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_level" class="form-label"><b> Brief Description</b></label>
+                {{ form.description }}
+            </div>
+
+            <input type="submit" class="btn btn-primary black-button-oz btn-block" value="Save">
+        
+        </form>
+
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+<div class="half-divider-oz"></div>
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        $('#id_title').addClass('form-control');
+        $('#id_title').attr('placeholder', 'Provide the publication title');
+        $('#id_description').addClass('form-control');
+        $('#id_description').attr('placeholder', 'Provide a brief description (i.e. time, magazine) if applicable');
+        $('#id_description').css('height', '40');
+    </script>
+
+{% endblock%}

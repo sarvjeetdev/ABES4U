@@ -1,0 +1,82 @@
+{% if experiences %}
+
+ <div class="card">
+    <!-- Header -->
+    <div class="card-header bg-dark text-center" id="heading2">
+        <h3 class="mb-0">
+            <button class="btn btn-link text-light" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse3">
+                <span style="font-size:1.3em;">
+                    <i class="fas fa-briefcase mr-2"></i> Experiences
+                </span>
+            </button>
+        </h3>
+    </div>
+
+     <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+
+        <!-- Card Body -->
+        <div class="card-body">
+
+            <table class="table table-responsive-sm mb-0">
+                
+                <thead class="table-dark">
+                    <tr class="text-center">
+                        <th scope="col"></th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Skills</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <form id="orderingForm" method="post" action="{% url 'cvbuilder:SaveExperienceOrdering' %}"> {% csrf_token %}
+                    
+                    <tbody id="experiences">
+
+                        {% for experience in experiences %}
+
+                            <tr data-lookup="{{ experience.id }}">
+                                <td><span class="handle_experiences handle"></span></td>                
+                                <td>{{ experience.title }}</td>
+                                <td>{{ experience.company }}</td>
+                                <td>{{ experience.duration }}</td>
+                                <td>
+                                    {% if experience.tech_as_list %}
+                                        {% for tech in experience.tech_as_list %}
+                                            <span class="badge badge-primary badge-pill">{{ tech }}</span>
+                                        {% endfor %}
+                                    {% else %}
+                                        No skill provided
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{% url 'cvbuilder:UpdateExperience' experience.id %}">
+                                        <div class="text-center text-success">
+                                            <i class="far fa-edit"></i>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'cvbuilder:DeleteExperience' experience.id %}">
+                                        <div class="text-center text-danger">
+                                            <i class="far fa-trash-alt"></i>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                    <input type="hidden" id="orderingInput" name="ordering">
+                </form>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endif %}

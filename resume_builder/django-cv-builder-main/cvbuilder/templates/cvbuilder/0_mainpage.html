@@ -1,0 +1,66 @@
+{% extends "cvbuilder/_base.html" %}
+{% load static %}
+{% block title %} Resume Builder {% endblock %}
+
+{% block content_noheader %}
+
+{% include 'cvbuilder/8_cv_navbar.html' %}
+
+<div class="container mt-0">
+    <div id="accordion">
+        {% include 'cvbuilder/1_basic_info.html' %}
+        {% include 'cvbuilder/2_experience.html' %}
+        {% include 'cvbuilder/3_skills.html' %}
+        {% include 'cvbuilder/4_education.html' %}
+        {% include 'cvbuilder/5_language.html' %}
+        {% include 'cvbuilder/6_achievement.html' %}
+        {% include 'cvbuilder/8_publication.html' %}
+    </div>
+</div>
+
+<div class="half-divider-oz"></div>
+
+{% endblock %}
+
+{% block script %}
+    {% include 'cvbuilder/7_script.html' %}
+{% endblock %}
+
+{% block head_other %}
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <style>
+        .handle {
+            display: inline-block;
+            border-top: 3px solid var(--dark);
+            width: 30px;
+            padding-top: 5px;
+            cursor: grab;
+        }
+        .handle:after, .handle:before {
+            display: block;
+            content: "";
+            padding-top: 5px;
+            border-top: 3px solid var(--dark);
+        }
+        .handle:hover, .handle:hover:before, .handle:hover:after {
+            border-color: var(--primary);
+        }
+        .handle:active, .handle:active:before, .handle:active:after {
+            cursor: grabbing;
+        }
+
+        .fa-grip-lines:hover, .fa-grip-lines:hover:before, .fa-grip-lines:hover:after {
+            color: var(--primary);
+        }
+        .fa-grip-lines{
+            cursor : grab;
+        }
+        .fa-grip-lines:active, .fa-grip-lines:active:before, .fa-grip-lines:active:after {
+            cursor : grabbing;
+        }
+        .django-ckeditor-widget {
+            width: 100%;
+        }
+    </style>
+{% endblock %}

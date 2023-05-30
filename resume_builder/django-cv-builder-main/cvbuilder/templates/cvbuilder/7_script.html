@@ -1,0 +1,164 @@
+{% load static %}
+
+<script src="{% static 'cvbuilder/Sortable.min.js' %}"></script>
+
+<script>
+
+    // Template
+    $('#id_template').addClass('form-control');
+
+    // Name 
+    $('#id_name').addClass('form-control');
+    $('#id_name').attr("placeholder", "Name - Surname");
+    // Email
+    $('#id_email').addClass('form-control');
+    $('#id_email').attr("placeholder", "Email Address");
+    // Phone Number
+    $('#id_telephone').addClass('form-control');
+    $('#id_telephone').attr("placeholder", "Phone Number");
+    // Linkedin Address
+    $('#id_linkedin').addClass('form-control');
+    $('#id_linkedin').attr("placeholder", "LinkedIn Address");
+    // Github
+    $('#id_github').addClass('form-control');
+    $('#id_github').attr("placeholder", "Github Address");
+    // Personal Website
+    $('#id_website').addClass('form-control');
+    $('#id_website').attr("placeholder", "Personal Website");
+    // Primary Title
+    $('#id_description').addClass('form-control');
+    $('#id_description').attr("placeholder", "Primary Title");
+    // Career Summary
+    $('#id_career_summary').addClass('form-control');
+    $('#id_career_summary').attr("placeholder", "Career Summary");
+    // Default option
+    $("option:contains('---------')").text("Select Resume Template");
+
+// ---- Sortable for Experiences - if exists
+
+    if($('#experiences').length){
+        const groups = document.getElementById('experiences');
+        let sortable = Sortable.create(groups, {
+            handle: '.handle_experiences',
+            onEnd: () => {
+                saveExperienceOrder();
+            }
+        });
+    }
+
+    function saveExperienceOrder() {
+        const rows = $('#experiences > tr');
+        let ids = [];
+        for (let row of rows) {
+            ids.push(row.dataset.lookup);
+        }
+        $('#orderingInput').val(ids.join(','));
+        $('#orderingForm').submit();
+    }
+
+// ---- Sortable for Skills - if exists
+
+    if($('#skills').length){
+        const skills = document.getElementById('skills');
+        let skills_sortable = Sortable.create(skills, {
+            onEnd: () => {
+                saveSkillsOrder();
+            }
+        });
+    }
+
+    function saveSkillsOrder(){
+        var skill_rows = $('#skills > li')
+        var skill_ids = [];
+        for(var row of skill_rows){
+            skill_ids.push(row.dataset.lookup);
+        };
+        $('#skillsOrderingInput').val(skill_ids.join(','));
+        $('#skillsOrderingForm').submit();
+    }
+
+// ---- Sortable for Education - if exists
+
+    if($('#educations').length){
+        const educations = document.getElementById('educations');
+        let educations_sortable = Sortable.create(educations, {
+            onEnd: () => {
+                saveEducationOrder();
+            }
+        });
+    };
+
+    function saveEducationOrder(){
+        var education_rows = $('#educations > tr');
+        var education_ids = [];
+        for(var row of education_rows){
+            education_ids.push(row.dataset.lookup);
+        };
+        $('#educationOrderingInput').val(education_ids.join(','));
+        $('#educationOrderingForm').submit();
+    }
+
+// ---- Sortable for Language - if exists
+
+    if($('#languages').length){
+        const languages = document.getElementById('languages');
+        let languages_sortable = Sortable.create(languages, {
+            onEnd: () => {
+                saveLanguageOrder();
+            }
+        });
+    };
+
+    function saveLanguageOrder(){
+        var language_rows = $('#languages > tr');
+        var language_ids = [];
+        for(var row of language_rows){
+            language_ids.push(row.dataset.lookup);
+        };
+        $('#languageOrderingInput').val(language_ids.join(','));
+        $('#languageOrderingForm').submit();
+    }
+
+// ---- Sortable for Achievement - if exists
+
+    if($('#achievements').length){
+        const achievements = document.getElementById('achievements');
+        let achievements_sortable = Sortable.create(achievements, {
+            onEnd: () => {
+                saveAchiementOrder();
+            }
+        });
+    };
+
+    function saveAchiementOrder(){
+        var achievement_rows = $('#achievements > tr');
+        var achievement_ids = [];
+        for(var row of achievement_rows){
+            achievement_ids.push(row.dataset.lookup);
+        };
+        $('#achievementOrderingInput').val(achievement_ids.join(','));
+        $('#achievementOrderingForm').submit();
+    }
+
+// ---- Sortable for Publication - if exists
+
+    if($('#publications').length){
+        const publications = document.getElementById('publications');
+        let publications_sortable = Sortable.create(publications, {
+            onEnd: () => {
+                savePublicationOrder();
+            }
+        });
+    };
+
+    function savePublicationOrder(){
+        var publication_rows = $('#publications > tr');
+        var publication_ids = [];
+        for(var row of publication_rows){
+            publication_ids.push(row.dataset.lookup);
+        };
+        $('#publicationOrderingInput').val(publication_ids.join(','));
+        $('#publicationOrderingForm').submit();
+    }
+
+</script>
